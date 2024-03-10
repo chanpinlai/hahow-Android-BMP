@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("HELP")
-                        .setMessage("ody mass index (BMI) is a value derived from the mass (weight) and height of a person. ")
-                        .setPositiveButton("OK", null)
+                        .setTitle(R.string.help)
+                        .setMessage(R.string.bmi_info)
+                        .setPositiveButton(R.string.ok, null)
                         .show();
             }
         });
@@ -50,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         float height = Float.parseFloat(h);
         float bmi = weight / (height * height);
         Log.d("MainActivity", "BMI:" + bmi);
-        Toast.makeText(this, "Your BMI is " + bmi, Toast.LENGTH_LONG).show();
-        result.setText("Your BMI is " + bmi);
+        Toast.makeText(this, getString(R.string.your_bmi_is) + bmi, Toast.LENGTH_LONG).show();
+        result.setText(getString(R.string.your_bmi_is) + bmi);
         new AlertDialog.Builder(this)
-                .setTitle("BMI")
-                .setMessage("Your BMI is " + bmi)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.bmi)
+                .setMessage(getString(R.string.your_bmi_is) + bmi)
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         edHeight.setText("");
@@ -63,7 +63,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .show();
-
-
     }
 }
