@@ -1,6 +1,7 @@
 package com.tom.bmi;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,19 +50,22 @@ public class MainActivity extends AppCompatActivity {
         float weight = Float.parseFloat(w);
         float height = Float.parseFloat(h);
         float bmi = weight / (height * height);
-        Log.d("MainActivity", "BMI:" + bmi);
+        Log.d("MainActivity", getString(R.string.your_bmi_is) + bmi);
         Toast.makeText(this, getString(R.string.your_bmi_is) + bmi, Toast.LENGTH_LONG).show();
         result.setText(getString(R.string.your_bmi_is) + bmi);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.bmi)
-                .setMessage(getString(R.string.your_bmi_is) + bmi)
-                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        edHeight.setText("");
-                        edWeight.setText("");
-                    }
-                })
-                .show();
+        Intent intent = new Intent(this,ResultActivity.class);
+        intent.putExtra("BMI",bmi);
+        startActivity(intent);
+//        new AlertDialog.Builder(this)
+//                .setTitle(R.string.bmi)
+//                .setMessage(getString(R.string.your_bmi_is) + bmi)
+//                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        edHeight.setText("");
+//                        edWeight.setText("");
+//                    }
+//                })
+//                .show();
     }
 }
