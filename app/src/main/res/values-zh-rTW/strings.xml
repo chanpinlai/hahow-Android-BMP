@@ -6,7 +6,7 @@
     <string name="ok">確認</string>
     <string name="your_bmi_is">您的BMI值</string>
     <string name="bmi">BMI</string>
-    <string name="weight">體重</string>
-    <string name="height">身高</string>
+    <string name="weight">體重 kg</string>
+    <string name="height">身高 cm</string>
     <string name="calculate_bmi">計算BMI</string>
 </resources>

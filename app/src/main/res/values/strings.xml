@@ -5,7 +5,7 @@
     <string name="ok">OK</string>
     <string name="your_bmi_is">"Your BMI is "</string>
     <string name="bmi">BMI</string>
-    <string name="weight">Weight</string>
-    <string name="height">Height</string>
+    <string name="weight">Weight kg</string>
+    <string name="height">Height cm</string>
     <string name="calculate_bmi">Calculate BMI</string>
 </resources>

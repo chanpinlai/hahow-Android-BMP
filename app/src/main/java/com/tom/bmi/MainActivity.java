@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -85,14 +87,15 @@ public class MainActivity extends AppCompatActivity {
     public void bmi(View view) {
         String w = edWeight.getText().toString();
         String h = edHeight.getText().toString();
+        DecimalFormat df = new DecimalFormat("###.#");
         float weight = Float.parseFloat(w);
-        float height = Float.parseFloat(h);
-        float bmi = weight / (height * height);
+        float height = Float.parseFloat(h) * 0.01f;
+        float bmi = Float.parseFloat(df.format(weight / (height * height)));
         Log.d("MainActivity", getString(R.string.your_bmi_is) + bmi);
         Toast.makeText(this, getString(R.string.your_bmi_is) + bmi, Toast.LENGTH_LONG).show();
         result.setText(getString(R.string.your_bmi_is) + bmi);
-        Intent intent = new Intent(this,ResultActivity.class);
-        intent.putExtra("BMI",bmi);
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("BMI", bmi);
         startActivity(intent);
 //        new AlertDialog.Builder(this)
 //                .setTitle(R.string.bmi)
